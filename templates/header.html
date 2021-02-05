@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html land='en'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Title</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+<ul>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Customers</a>
+    <div class="dropdown-content">
+        <a href="/newinvoice">New invoice</a>
+        <a href="/invoice">Issue an invoice</a>
+        <a href="#">List of invoices</a>
+      <a href="/newcustomer">New customer</a>
+      <a href="#">List of cutomers</a>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Orders</a>
+    <div class="dropdown-content">
+      <a href="/orders">New order</a>
+      <a href="#">List of order</a>
+    </div>
+  </li>
+      <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Suppliers</a>
+    <div class="dropdown-content">
+      <a href="/sinvoice">New supplier invoice</a>
+        <a href="#">List of supplier's invoices</a>
+      <a href="/newsupplier">New supplier</a>
+      <a href="#">List of suppliers</a>
+    </div>
+  </li>
+<li style="float:right"><a href="#">Logout</a></li>
+</ul>
+
+	{% block content %}
+	{% endblock %}
+
+	{% block main %}
+	{% endblock %}
+</body>
+</html>

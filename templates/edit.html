@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Update</h1>
+<form name="edit" method="post" action="/main/edit/{{ post1.id }}">
+	 <label>Choose your language :</label>
+  <select name="language">
+    <option value="Python">Python</option>
+    <option value="Java">Java </option>
+    <option value="JavaScript">JavaScript </option>
+  </select>
+	<button type="submit" id="sendmessage">Save</button>
+</form>
+<hr>
+{% endblock %}

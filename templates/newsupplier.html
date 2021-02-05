@@ -1,0 +1,36 @@
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+
+{% extends 'header.html' %}
+
+{% block content %}
+
+<div class="form-style-10" >
+<h1>New Supplier</h1>
+<form>
+    <div class="section"><span>1</span>Company address</div>
+    <div class="inner-wrap">
+        <label>Company name <input type="text" name="field1" /></label>
+        <label>Address <textarea name="field2"></textarea></label>
+        <label>City <textarea name="field3"></textarea></label>
+        <label>Zip Code <textarea name="field4"></textarea></label>
+    </div>
+
+    <div class="section"><span>2</span>VAT</div>
+    <div class="inner-wrap">
+         <label>VAT<input type="text" name="field5" /></label>
+    </div>
+
+
+    <div class="section"><span>3</span>Contact</div>
+        <div class="inner-wrap">
+        <label>Phone<input type="text" name="field6" /></label>
+        <label>E-mail <input type="text" name="field7" /></label>
+    </div>
+
+    <div class="button-section">
+     <input type="submit" name="Save"  value="Save"/>
+    </div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.css"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.2.0/mdb.min.js"
+></script>
+
+
+{% block content %}
+
+<!-- Section: form gradient -->
+<section class="form-gradient mb-5">
+  <!--Form with header-->
+  <div class="card">
+    <div class="card-body mx-4">
+             <div class="md-form">
+        <i class="fas fa-truck"></i>-<label for="form107">Supplier</label>
+        <textarea id="form100" class="md-textarea form-control" rows="1" style="width:700px"></textarea>
+          </div>
+              <br>
+
+      <div class="md-form">
+        <i class="far fa-calendar-alt"></i>-<label for="form104">Date of issue </label>
+        <input type="date" id="form101" class="form-control" style="width:300px">
+      </div>
+          <div class="md-form">
+        <i class="far fa-calendar-alt"></i>-<label for="form105">Due date</label>
+        <input type="date" id="form103" class="form-control" style="width:300px">
+      </div>
+    <br>
+          <div class="md-form">
+        <i class="fas fa-warehouse"></i>-<label for="form107">Text</label>
+        <textarea id="form102" class="md-textarea form-control" rows="10" style="width:700px"></textarea>
+          </div>
+              <br>
+
+      <div class="md-form">
+        <i class="far fa-calendar-alt"></i>-<label for="form105">Amount in EUR</label>
+        <input type="number" id="form108" class="form-control" style="width:300px">
+      </div>
+
+
+      <!--Grid row-->
+      <div class="row d-flex align-items-center mb-3 mt-4">
+
+        <!--Grid column-->
+        <div class="col-md-12">
+          <div class="text-left">
+            <button onclick="location.href='/'" type="button" class="btn btn-grey btn-rounded z-depth-1a">Back</button>
+            <button type="button" class="btn btn-grey btn-rounded z-depth-1a">Save</button>
+          </div>
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+    </div>
+
+  </div>
+  <!--/Form with header-->
+
+</section>
+
+
+{% endblock %}

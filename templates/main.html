@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>This is main.html</h1>
+{% endblock %}
+
+{% block main %}
+
+{% for p in post %}
+<a href="/addlanguage/{{ p.id }}"><h4>Welcome to IT school Mr.{{p.author}} -choose language </h4></a>
+{% endfor %}
+
+{% for p1 in post1 %}
+<br>
+language-  {{ p1.language }}
+<a href="main/edit/{{ p1.id }}">Edit</a>
+<a href="main/delete/{{ p1.id }}">Delete</a>
+<br>
+{% endfor %}
+
+
+
+{% endblock %}
