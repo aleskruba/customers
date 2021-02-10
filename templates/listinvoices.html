@@ -1,4 +1,3 @@
-
 {% block content %}
 
 <html>
@@ -33,28 +32,24 @@
   <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                
+                <th>Invoice nr.</th>
                 <th>Company</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>ZIP </th>
-                <th>VAT</th>
-                <th>Phone</th>
-                <th>Email</th>
-            </tr>
+                <th>Date of issue</th>
+                <th>Due date</th>
+             
+                <th>Amount in EUR</th>
+                          </tr>
         </thead>
         <tbody>
-  {% for sup in suppliers.items %}
+  {% for inv in invoices.items %}
   <tr>
-                
-                <td>{{ sup.sCompany}}</td>
-                <td>{{ sup.sAddress}}</td>
-                <td>{{ sup.sCity}}</td>
-                <td>{{ sup.sZIP }}</td>
-                <td>{{ sup.sVAT}}</td>
-                <td>{{ sup.sPhone}}</td>
-                <td>{{ sup.sEmail}}</td>
-
+                <td>{{ inv.id}}</td>
+                <td>{{ inv.cinvoiceCompany}}</td>
+                <td>{{ inv.cinvoiceIssue}}</td>
+                <td>{{ inv.cinvoiceDue}}</td>
+              
+                <td>{{ inv.cinvoiceAmount}}</td>
+               
 
         </tr>
         {% endfor %}  
@@ -74,19 +69,19 @@
   </table>
    <nav aria-label="Page navigation example">
                 <ul class="pagination">
-                    {% if suppliers.has_prev %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listsuppliers', page=employees.prev_num) }}">Previous</a></li>
+                    {% if invoices.has_prev %}
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=employees.prev_num) }}">Previous</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Previous</a></li>
                     {% endif %}
       
-     {% for page in suppliers.iter_pages(left_edge=3, right_edge=3) %}
+     {% for page in invoices.iter_pages(left_edge=3, right_edge=3) %}
      {% if page %}
       
-      {% if page==suppliers.page %}
-       <li class="page-item active"><a class="page-link" href="{{ url_for('listsuppliers', page=page) }}">{{ page }}</a></li>
+      {% if page==invoices.page %}
+       <li class="page-item active"><a class="page-link" href="{{ url_for('listinvoices', page=page) }}">{{ page }}</a></li>
       {% else %}
-       <li class="page-item"><a class="page-link" href="{{ url_for('listsuppliers', page=page) }}">{{ page }}</a></li>
+       <li class="page-item"><a class="page-link" href="{{ url_for('listinvoices', page=page) }}">{{ page }}</a></li>
       {% endif %}
        
      {% else %}
@@ -94,8 +89,8 @@
      {% endif %}
      {% endfor %}
  
-                    {% if suppliers.has_next %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listsuppliers', page=employees.next_num) }}">Next</a></li>
+                    {% if invoices.has_next %}
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=employees.next_num) }}">Next</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
                     {% endif %}
