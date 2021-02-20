@@ -75,7 +75,7 @@
    <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     {% if customers.has_prev %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listcustomers', page=employees.prev_num) }}">Previous</a></li>
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listcustomers', page=customers.prev_num) }}">Previous</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Previous</a></li>
                     {% endif %}

@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
 <!-- Font Awesome -->
 <link
@@ -23,7 +22,7 @@
 
 
 {% block content %}
-<form method="post" action="/newinvoice/{{ cust.id }}">
+<form method="post" action="/editinvoice/{{ post.id }}">
 <!-- Section: form gradient -->
 <section class="form-gradient mb-5">
   <!--Form with header-->
@@ -31,30 +30,31 @@
     <div class="card-body mx-4">
              <div class="md-form">
         <i class="fas fa-truck"></i>-<label for="form107">Customer</label>
-         
-        <P id="form100" class="md-textarea form-control" rows="1" style="width:700px;background: wheat;" >{{cust.cCompany}} -   {{cust.cAddress}}  -  {{cust.cCity}}  -  {{cust.cZIP}}  -  VAT:{{cust.cVAT}}</p>
-         
+
+          <select  name="customer">{% for c in cust %}
+                 <option  value="{{ c.id }}" > {{ c.cCompany}}</option>  {% endfor %}
+         </select>
           </div>
               <br>
 
       <div class="md-form">
         <i class="far fa-calendar-alt"></i>-<label for="form104">Date of issue </label>
-        <input type="date" id="form101" class="form-control" style="width:300px" name="cinvoiceIssue">
+        <input type="date" id="form101" class="form-control" style="width:300px" name="cinvoiceIssue" value="{{post.cinvoiceIssue}}">
       </div>
           <div class="md-form">
         <i class="far fa-calendar-alt"></i>-<label for="form105">Due date</label>
-        <input type="date" id="form103" class="form-control" style="width:300px" name="cinvoiceDue">
+        <input type="date" id="form103" class="form-control" style="width:300px" name="cinvoiceDue" value="{{post.cinvoiceDue}}">
       </div>
     <br>
           <div class="md-form">
         <i class="fas fa-warehouse"></i>-<label for="form107">Text</label>
-        <textarea id="form102" class="md-textarea form-control" rows="10" style="width:700px" name="cinvoiceText"></textarea>
+        <textarea id="form102" class="md-textarea form-control" rows="10" style="width:700px" name="cinvoiceText">{{ post.cinvoiceText }}</textarea>
           </div>
               <br>
 
       <div class="md-form">
         <i class="far fa-calendar-alt"></i>-<label for="form105">Amount in EUR</label>
-        <input type="number" id="form108" class="form-control" style="width:300px" name="cinvoiceAmount">
+        <input type="number" id="form108" class="form-control" style="width:300px" name="cinvoiceAmount" value="{{ post.cinvoiceAmount }}">
       </div>
 
 

@@ -1,4 +1,3 @@
-
 {% block content %}
 
 <html>
@@ -19,7 +18,7 @@
    <form action="" method="post" autocomplete="off"> 
    <div class="row">
     <div class="col-6">
-    <input type="text" class="form-control" name="tag" id="tag"  placeholder="Enter Company"/> 
+    <input type="text" class="form-control" name="tag" id="tag"  placeholder="Enter Supplier"/> 
     </div>
     <div class="col-6" align="left">
     <input type="submit" value="Search" class="form-control btn btn-primary " name=""> 
@@ -41,20 +40,21 @@
                 <th>VAT</th>
                 <th>Phone</th>
                 <th>Email</th>
+
             </tr>
         </thead>
         <tbody>
-  {% for sup in suppliers.items %}
+  {% for sup in suppliers.items %}<a href="{{ url_for('invoice', page = sup.id) }}">
   <tr>
                 <td>{{ sup.id}}</td>
-                <td>{{ sup.sCompany}}</td>
+                <td><a href="/sinvoice/{{ sup.id }}">{{ sup.sCompany}}</a></td>
                 <td>{{ sup.sAddress}}</td>
                 <td>{{ sup.sCity}}</td>
                 <td>{{ sup.sZIP }}</td>
                 <td>{{ sup.sVAT}}</td>
                 <td>{{ sup.sPhone}}</td>
                 <td>{{ sup.sEmail}}</td>
-
+                
 
         </tr>
         {% endfor %}  

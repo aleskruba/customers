@@ -18,7 +18,7 @@
    <form action="" method="post" autocomplete="off"> 
    <div class="row">
     <div class="col-6">
-    <input type="text" class="form-control" name="tag" id="tag"  placeholder="Enter Company"/> 
+    <input type="text" autofocus="autofocus" class="form-control" name="tag" id="tag"  placeholder="Enter Company"/> 
     </div>
     <div class="col-6" align="left">
     <input type="submit" value="Search" class="form-control btn btn-primary " name=""> 
@@ -44,12 +44,12 @@
   {% for inv in invoices.items %}
   <tr>
                 <td>{{ inv.id}}</td>
-                <td>{{ inv.cinvoiceCompany}}</td>
+                <td>{{ inv.customer.cCompany}}</td>
                 <td>{{ inv.cinvoiceIssue}}</td>
                 <td>{{ inv.cinvoiceDue}}</td>
-              
                 <td>{{ inv.cinvoiceAmount}}</td>
-               
+           <td> <button onclick="location.href='/printinvoice/{{ inv.id }}'" type="button" class="btnbtn-primary btn-rounded z-depth-1a">Print</button>   </td>
+           <td> <button onclick="location.href='/editinvoice/{{inv.id}}'" type="button" class="btnbtn-primary btn-rounded z-depth-1a">Update</button>   </td>
 
         </tr>
         {% endfor %}  
@@ -70,7 +70,7 @@
    <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     {% if invoices.has_prev %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=employees.prev_num) }}">Previous</a></li>
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=invoices.prev_num) }}">Previous</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Previous</a></li>
                     {% endif %}
@@ -90,7 +90,7 @@
      {% endfor %}
  
                     {% if invoices.has_next %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=employees.next_num) }}">Next</a></li>
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listinvoices', page=invoices.next_num) }}">Next</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
                     {% endif %}

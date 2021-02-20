@@ -94,7 +94,7 @@
      {% endfor %}
  
                     {% if orders.has_next %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listorders', page=employees.next_num) }}">Next</a></li>
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listorders', page=orders.next_num) }}">Next</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
                     {% endif %}
