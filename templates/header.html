@@ -10,6 +10,10 @@
 
 </head>
 <body>
+
+  
+
+
 <ul>
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Customers</a>
@@ -23,7 +27,7 @@
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Orders</a>
     <div class="dropdown-content">
-      <a href="/orders">New order</a>
+      <a href="/order">New order</a>
       <a href="/listorders">List of orders</a>
     </div>
   </li>
@@ -39,8 +43,28 @@
 <li style="float:right"><a href="#">Logout</a></li>
 </ul>
 
+<div style="color: red;background: wheat">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+
+  {% endif %}
+{% endwith %}
+</div>
+
+
+
+
+
 	{% block content %}
-	{% endblock %}
+
+
+
+  {% endblock %}
 
 	{% block main %}
 	{% endblock %}

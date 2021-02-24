@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
 <!-- Font Awesome -->
 <link
@@ -23,8 +22,7 @@
 
 
 {% block content %}
-<form method="post" action="/neworder/{{ sup.id }}">
-
+<form method="post" action="/editorder/{{ post.id }}">
 <!-- Section: form gradient -->
 <section class="form-gradient mb-5">
   <!--Form with header-->
@@ -32,48 +30,51 @@
     <div class="card-body mx-4">
              <div class="md-form">
         <i class="fas fa-truck"></i>-<label for="form107">Supplier</label>
-            <P id="form100" class="md-textarea form-control" rows="1" style="width:700px;background: wheat;" >{{sup.sCompany}} -   {{sup.sAddress}}  -  {{sup.sCity}}  -  {{sup.sZIP}}  -  VAT:{{sup.sVAT}}</p>
+
+          <select  name="supplier">{% for s in sup %}
+                 <option  value="{{ s.id }}" > {{ s.sCompany}}</option>  {% endfor %}
+         </select>
           </div>
               <br>
-
-      <div class="md-form">
+ <div class="md-form">
         <i class="far fa-calendar-alt"></i>-<label for="form104">  Date of loading</label>
-        <input type="date" id="form101" class="form-control" style="width:300px" name="dloading" >
+        <input type="date" id="form101" class="form-control" style="width:300px" name="dloading" value="{{post.dloading}}">
       </div>
     <br>
           <div class="md-form">
         <i class="fas fa-warehouse"></i>-<label for="form107">Address of loading and contact</label>
-        <textarea id="form102" class="md-textarea form-control" rows="4" style="width:700px" name="aloading"></textarea>
+        <textarea id="form102" class="md-textarea form-control" rows="4" style="width:700px" name="aloading">{{post.aloading}}</textarea>
           </div>
               <br>
 
       <div class="md-form">
         <i class="far fa-calendar-alt"></i>-<label for="form105">Date of delivery</label>
-        <input type="date" id="form103" class="form-control" style="width:300px" name="ddelivery">
+        <input type="date" id="form103" class="form-control" style="width:300px" name="ddelivery" value="{{post.ddelivery}}">
       </div>
 
         <br>
              <div class="md-form">
         <i class="fas fa-warehouse"></i>-<label for="form107">Address of delivery and contact</label>
-        <textarea id="form104" class="md-textarea form-control" rows="4" style="width:700px" name="adelivery"></textarea>
+        <textarea id="form104" class="md-textarea form-control" rows="4" style="width:700px" name="adelivery">{{post.adelivery}}</textarea>
         </div>
                  <br>
 
             <div class="md-form">
         <i class="fas fa-pallet"></i>-<label for="form107">Goods, weight , number of Colli </label>
-        <textarea id="form105" class="md-textarea form-control" rows="3" style="width:700px" name="goods"></textarea>
+        <textarea id="form105" class="md-textarea form-control" rows="3" style="width:700px" name="goods">{{post.goods}}</textarea>
         </div>
                 <br>
 
       <div class="md-form">
       <i class="far fa-comment-alt"></i>-<label for="form107">Note</label>
-        <textarea id="form107" class="md-textarea form-control" rows="2" style="width:700px" name="note"></textarea>
+        <textarea id="form107" class="md-textarea form-control" rows="2" style="width:700px" name="note">{{post.note}}</textarea>
       </div>
 
-   <div class="md-form">
+         <div class="md-form">
       <i class="far fa-comment-alt"></i>-<label for="form107">Price</label>
-        <textarea id="form107" class="md-textarea form-control" rows="2" style="width:700px" name="price"></textarea>
+        <textarea id="form107" class="md-textarea form-control" rows="2" style="width:700px" name="price">{{post.price}}</textarea>
       </div>
+
 
       <!--Grid row-->
       <div class="row d-flex align-items-center mb-3 mt-4">
@@ -85,21 +86,16 @@
             <input onclick="location.href='/'" type="button" class="btn btn-grey btn-rounded z-depth-1a"  value="Back">
           <input type="submit" name="Save"   class="btn btn-grey btn-rounded z-depth-1a" value="Save"/>
         </div>
-        
-           <!-- <button onclick="location.href='/'" type="button" class="btn btn-grey btn-rounded z-depth-1a">Back</button>
-            <button type="button" class="btn btn-grey btn-rounded z-depth-1a">Save</button>-->
+
           </div>
-        </div>
         <!--Grid column-->
 
-      </div>
-      <!--Grid row-->
-    </div>
+     </div>
 
   </div>
   <!--/Form with header-->
 
 </section>
-
 </form>
+
 {% endblock %}

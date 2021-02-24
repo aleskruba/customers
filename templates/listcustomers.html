@@ -54,7 +54,7 @@
                 <td>{{ cust.cVAT}}</td>
                 <td>{{ cust.cPhone}}</td>
                 <td>{{ cust.cEmail}}</td>
-
+  <td> <button onclick="location.href='/editcustomer/{{cust.id}}'" type="button" class="btnbtn-primary btn-rounded z-depth-1a">Update</button>   </td>
 
         </tr>
         {% endfor %}  
@@ -95,7 +95,7 @@
      {% endfor %}
  
                     {% if customers.has_next %}
-                      <li class="page-item"> <a class="page-link" href="{{ url_for('listcustomers', page=employees.next_num) }}">Next</a></li>
+                      <li class="page-item"> <a class="page-link" href="{{ url_for('listcustomers', page=customers.next_num) }}">Next</a></li>
                     {% else %}
                       <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
                     {% endif %}
